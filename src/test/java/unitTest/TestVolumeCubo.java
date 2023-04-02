@@ -11,7 +11,6 @@ import static org.junit.Assert.assertEquals;
 
 
 public class TestVolumeCubo {
-
     @Test
     @Order(1)
     public void testCalcularVolumeCubo() {
@@ -64,8 +63,6 @@ public class TestVolumeCubo {
 
         double result = Math.pow(aresta, expoente);
         assertEquals(esperado, result, 0.0001);
-
-
 
     }
 }
