@@ -25,7 +25,7 @@ public class TesteAreaDoQuadrado {
     }
 
     @DisplayName("Teste com lista de cálculo da Área do Quadrado")
-    @ParameterizedTest(name = "{index} - {0} - {1}")
+    @ParameterizedTest(name = "{displayName} {index} - Aresta: {0} - Resultado: {1}")
     @CsvSource(value = {
             "5, 25",
             "3, 9",
@@ -44,9 +44,9 @@ public class TesteAreaDoQuadrado {
         assertEquals(resultadoEsperado, resultado);
     }
 
-    @ParameterizedTest
+    @ParameterizedTest(name = "{displayName} {index} - Aresta: {0} - Resultado: {1}")
     @CsvFileSource(resources = "/csv/massaAreaQuadrado.csv", numLinesToSkip = 1, delimiter = ';')
-    @DisplayName("Teste com arquivo CSV de cálculo da Área do Quadrado")
+    @DisplayName("Arquivo CSV de cálculo da Área do Quadrado")
     public void testeCalculoAreaDoQuadradoComAqruivoCSV(String txtAresta, String txtResultadoEsperado) {
         //Configura
         double aresta = Double.parseDouble(txtAresta);

@@ -24,7 +24,7 @@ class TesteAreaCirculo {
         assertEquals(314, resultado, 0.01);
     }
 
-    @ParameterizedTest
+    @ParameterizedTest(name = "{displayName} {index} - Raio: {0} - Resultado: {1}")
     @CsvSource({
             "10, 314",
             "-15, 706.5",
@@ -45,7 +45,7 @@ class TesteAreaCirculo {
         assertEquals(resultadoEsperado, resultado,0.01);
     }
 
-    @ParameterizedTest
+    @ParameterizedTest(name = "{displayName} {index} - Raio: {0} - Resultado: {1}")
     @CsvFileSource(resources = "/csv/areaCirculo.csv", numLinesToSkip = 1, delimiter = ';')
     void testeAreaCirculoCSV(String  txtRaio, String txtResultadoEsperado) {
         //Configura
