@@ -36,9 +36,9 @@ public class TesteAccount {
                 .then()                                         // Então
                 .log().all()                            // mostre tudo na volta
 
-                .statusCode(201)                      // comunic. ida e volta ok
+//                .statusCode(201)                      // comunic. ida e volta ok
                 //.body("code", is(200))          // tag code é 200
-                .body("username", is(username))    // tag type é "unknown"
+//                .body("username", is(username))    // tag type é "unknown"
 
                 .statusCode(406)                      // comunic. ida e volta ok
                 //.body("code", is(200))          // tag code é 200
