@@ -10,7 +10,6 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,9 +27,9 @@ public class ComprarPassagemSIDE {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
 
-        // Aponta onde está o Chrome Driver
-        // System.setProperty("webdriver.chrome.driver", "drivers/chrome/chromedriver.exe");
-        driver = new ChromeDriver(options); // Instancia / Liga o Chrome Driver
+
+        // Aponta onde está o chrome driver
+        driver = new ChromeDriver(options);
         js = (JavascriptExecutor) driver;
         vars = new HashMap<String, Object>();
     }

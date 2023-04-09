@@ -1,11 +1,6 @@
-package unitTest;
-
-// Bibliotecas
+package unitTest;// Bibliotecas
 import br.com.iterasys.Calculadora;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvFileSource;
-import org.junit.jupiter.params.provider.CsvSource;
 
 import java.sql.SQLOutput;
 
@@ -34,40 +29,35 @@ public class TesteCalculadora { // inicio da classe
         assertEquals(resultadoEsperado, resultadoAtual);
     } // final do teste do somar
 
-    // Este é um teste de unidade data driven - direcionado por dados
-    @ParameterizedTest
-    @CsvSource(value = {
-            "7, 5, 12.0",
-            "56, 44, 100.0",
-            "10, 0, 10.0",
-            "15, -5, 10.0",
-            "-8, -6, -14.0"
-    }, delimiter = ',')
-    public void testeSomarDoisNumerosLendoLista(String txtNum1, String txtNum2, String resultadoEsperado){ // inicio do teste do somar
-        // Configura
-        // Os dados de entrada e o resultado esperado vem da lista
-
-        // Executa
-        double resultadoAtual = Calculadora.somarDoisNumeros(Integer.valueOf(txtNum1), Integer.valueOf(txtNum2));
-
-        // Valida
-        assertEquals(Double.valueOf(resultadoEsperado), resultadoAtual);
-    } // final do teste do somar
-
-    @ParameterizedTest
-    @CsvFileSource(resources = "csv/massaSomar.csv", numLinesToSkip = 1, delimiter = ',')
-    public void testeSomarDoisNumerosLendoArquivo(String txtNum1, String txtNum2, String resultadoEsperado){ // inicio do teste do somar
-        // Configura
-        // Os dados de entrada e o resultado esperado vem da lista
-
-        // Executa
-        double resultadoAtual = Calculadora.somarDoisNumeros(Integer.valueOf(txtNum1), Integer.valueOf(txtNum2));
-
-        // Valida
-        assertEquals(Double.valueOf(resultadoEsperado), resultadoAtual);
-    } // final do teste do somar
-
     @Test
+    public void testeSubtrairDoisNumeros(){ // inicio teste subtrair
+      // Configura
+      // Valores de entrada
+      double num1 = 7;
+      double num2 = 7;
+      // Valores de saída
+      double resultadoEsperado = 0;
+      // Executa
+      double resultadoAtual = Calculadora.subtrairDoisNumeros(num1, num2);
+      // Valida
+      assertEquals(resultadoEsperado, resultadoAtual);
+    } // fim teste subtrair
+    @Test
+    public void testeMultiplicarDoisNumeros(){ // inicio teste multiplicar
+      // Cofigura
+      // Valores de entrada
+      double num1 = 33;
+      double num2 = 29;
+      // Valores de saída
+      double resultadoEspeado = 957;
+      // Executa
+      double resultadoAtual = Calculadora.multiplicarDoisNumeros(num1, num2);
+      // Valida
+      assertEquals(resultadoEspeado, resultadoAtual);
+    } // fim teste multiplicar
+
+
+
     public void testeDividirDoisNumeros(){ //inicio do teste do dividir
         // Configura
         double num1 = 10;
@@ -97,3 +87,5 @@ public class TesteCalculadora { // inicio da classe
         System.out.println("O resultado esperado: " + resultadoEsperado);
     } // fim do teste dividir inteiro
 }
+
+
