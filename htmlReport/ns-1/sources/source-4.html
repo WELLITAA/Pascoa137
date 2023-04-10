@@ -1,0 +1,194 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > TesteCalculadora</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">unitTest</a>
+</div>
+
+<h1>Coverage Summary for Class: TesteCalculadora (unitTest)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">TesteCalculadora</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    83.3%
+  </span>
+  <span class="absValue">
+    (5/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    82.1%
+  </span>
+  <span class="absValue">
+    (23/28)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package unitTest;// Bibliotecas
+&nbsp;import br.com.iterasys.Calculadora;
+&nbsp;import org.junit.jupiter.api.Test;
+&nbsp;
+&nbsp;import java.sql.SQLOutput;
+&nbsp;
+&nbsp;import static org.junit.jupiter.api.Assertions.assertEquals;
+&nbsp;import static org.junit.jupiter.api.Assertions.assertTrue;
+&nbsp;
+&nbsp;// Classe
+<b class="fc">&nbsp;public class TesteCalculadora { // inicio da classe</b>
+&nbsp;    // Atributos
+&nbsp;
+&nbsp;    // Funções e Métodos
+&nbsp;
+&nbsp;    @Test
+&nbsp;    public void testeSomarDoisNumeros(){ // inicio do teste do somar
+&nbsp;        // Configura
+&nbsp;        // Valores de entrada
+<b class="fc">&nbsp;        double num1 = 7;</b>
+<b class="fc">&nbsp;        double num2 = 5;</b>
+&nbsp;        // Valores de saída
+<b class="fc">&nbsp;        double resultadoEsperado = 12;</b>
+&nbsp;
+&nbsp;        // Executa
+<b class="fc">&nbsp;        double resultadoAtual = Calculadora.somarDoisNumeros(num1, num2);</b>
+&nbsp;
+&nbsp;        // Valida
+<b class="fc">&nbsp;        assertEquals(resultadoEsperado, resultadoAtual);</b>
+&nbsp;    } // final do teste do somar
+&nbsp;
+&nbsp;    @Test
+&nbsp;    public void testeSubtrairDoisNumeros(){ // inicio teste subtrair
+&nbsp;      // Configura
+&nbsp;      // Valores de entrada
+<b class="fc">&nbsp;      double num1 = 7;</b>
+<b class="fc">&nbsp;      double num2 = 7;</b>
+&nbsp;      // Valores de saída
+<b class="fc">&nbsp;      double resultadoEsperado = 0;</b>
+&nbsp;      // Executa
+<b class="fc">&nbsp;      double resultadoAtual = Calculadora.subtrairDoisNumeros(num1, num2);</b>
+&nbsp;      // Valida
+<b class="fc">&nbsp;      assertEquals(resultadoEsperado, resultadoAtual);</b>
+&nbsp;    } // fim teste subtrair
+&nbsp;    @Test
+&nbsp;    public void testeMultiplicarDoisNumeros(){ // inicio teste multiplicar
+&nbsp;      // Cofigura
+&nbsp;      // Valores de entrada
+<b class="fc">&nbsp;      double num1 = 33;</b>
+<b class="fc">&nbsp;      double num2 = 29;</b>
+&nbsp;      // Valores de saída
+<b class="fc">&nbsp;      double resultadoEspeado = 957;</b>
+&nbsp;      // Executa
+<b class="fc">&nbsp;      double resultadoAtual = Calculadora.multiplicarDoisNumeros(num1, num2);</b>
+&nbsp;      // Valida
+<b class="fc">&nbsp;      assertEquals(resultadoEspeado, resultadoAtual);</b>
+&nbsp;    } // fim teste multiplicar
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;    public void testeDividirDoisNumeros(){ //inicio do teste do dividir
+&nbsp;        // Configura
+<b class="nc">&nbsp;        double num1 = 10;</b>
+<b class="nc">&nbsp;        double num2 = 4;</b>
+<b class="nc">&nbsp;        double resultadoEsperado = 2.5;</b>
+&nbsp;
+&nbsp;        // Executa
+<b class="nc">&nbsp;        double resultadoAtual = Calculadora.dividirDoisNumeros(num1,num2);</b>
+&nbsp;        // Valida
+<b class="nc">&nbsp;        assertEquals(resultadoEsperado, resultadoAtual);</b>
+&nbsp;
+&nbsp;    } // final do teste do dividir
+&nbsp;
+&nbsp;    @Test
+&nbsp;    public void testeDividirDoisNumerosInteiros(){ // inicío do teste dividir inteiro
+&nbsp;        // Configura
+<b class="fc">&nbsp;        int numA = 42;</b>
+<b class="fc">&nbsp;        int numB = 0;</b>
+<b class="fc">&nbsp;        String resultadoEsperado = &quot;Não é possível dividir por zero&quot;;</b>
+&nbsp;
+&nbsp;        // Executa
+<b class="fc">&nbsp;        String resultadoAtual = Calculadora.dividirDoisNumerosInteiros(numA, numB);</b>
+&nbsp;
+&nbsp;        // Valida
+<b class="fc">&nbsp;        assertEquals(resultadoEsperado, resultadoAtual);</b>
+<b class="fc">&nbsp;        System.out.println(numA + &quot; / &quot; + numB + &quot; = &quot; + resultadoAtual);</b>
+<b class="fc">&nbsp;        System.out.println(&quot;O resultado esperado: &quot; + resultadoEsperado);</b>
+&nbsp;    } // fim do teste dividir inteiro
+&nbsp;}
+&nbsp;
+&nbsp;
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-04-10 20:53</div>
+</div>
+</body>
+</html>

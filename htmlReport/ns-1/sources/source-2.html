@@ -1,0 +1,164 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > TesteAreaCirculo</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">unitTest</a>
+</div>
+
+<h1>Coverage Summary for Class: TesteAreaCirculo (unitTest)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">TesteAreaCirculo</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (12/12)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package unitTest;
+&nbsp;
+&nbsp;import org.junit.jupiter.api.DisplayName;
+&nbsp;import org.junit.jupiter.api.Order;
+&nbsp;import org.junit.jupiter.api.Test;
+&nbsp;import org.junit.jupiter.params.ParameterizedTest;
+&nbsp;import org.junit.jupiter.params.provider.CsvFileSource;
+&nbsp;import org.junit.jupiter.params.provider.CsvSource;
+&nbsp;
+&nbsp;import static br.com.iterasys.Calculadora.areaCirculo;
+&nbsp;import static org.junit.jupiter.api.Assertions.assertEquals;
+&nbsp;
+<b class="fc">&nbsp;class TesteAreaCirculo {</b>
+&nbsp;    @Test
+&nbsp;    @DisplayName(&quot;Teste de area do circulo&quot;)
+&nbsp;    void testeAreaCirculo() {
+&nbsp;        //Configura
+<b class="fc">&nbsp;        double raio = 10;</b>
+&nbsp;
+&nbsp;        //Executa
+<b class="fc">&nbsp;        double resultado = areaCirculo(raio);</b>
+&nbsp;
+&nbsp;        //Valida
+<b class="fc">&nbsp;        assertEquals(314, resultado, 0.01);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @ParameterizedTest(name = &quot;{displayName} {index} - Raio: {0} - Resultado: {1}&quot;)
+&nbsp;    @CsvSource({
+&nbsp;            &quot;10, 314&quot;,
+&nbsp;            &quot;-15, 706.5&quot;,
+&nbsp;            &quot;30, 2826&quot;,
+&nbsp;            &quot;5.6, 98.4704&quot;,
+&nbsp;            &quot;50, 7850&quot;
+&nbsp;    })
+&nbsp;    @DisplayName(&quot;Teste de area do circulo com Lista&quot;)
+&nbsp;    void testeAreaCirculoLista(String  txtRaio, String txtResultadoEsperado) {
+&nbsp;        //Configura
+<b class="fc">&nbsp;        double raio = Double.parseDouble(txtRaio);</b>
+<b class="fc">&nbsp;        double resultadoEsperado = Double.parseDouble(txtResultadoEsperado);</b>
+&nbsp;
+&nbsp;        //Executa
+<b class="fc">&nbsp;        double resultado = areaCirculo(raio);</b>
+&nbsp;
+&nbsp;        //Valida
+<b class="fc">&nbsp;        assertEquals(resultadoEsperado, resultado,0.01);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @ParameterizedTest(name = &quot;{displayName} {index} - Raio: {0} - Resultado: {1}&quot;)
+&nbsp;    @CsvFileSource(resources = &quot;/csv/areaCirculo.csv&quot;, numLinesToSkip = 1, delimiter = &#39;;&#39;)
+&nbsp;    void testeAreaCirculoCSV(String  txtRaio, String txtResultadoEsperado) {
+&nbsp;        //Configura
+<b class="fc">&nbsp;        double raio = Double.parseDouble(txtRaio);</b>
+<b class="fc">&nbsp;        double resultadoEsperado = Double.parseDouble(txtResultadoEsperado);</b>
+&nbsp;
+&nbsp;        //Executa
+<b class="fc">&nbsp;        double resultado = areaCirculo(raio);</b>
+&nbsp;
+&nbsp;        //Valida
+<b class="fc">&nbsp;        assertEquals(resultadoEsperado, resultado,0.01);</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-04-10 20:53</div>
+</div>
+</body>
+</html>

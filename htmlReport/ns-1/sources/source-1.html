@@ -1,0 +1,176 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > TestVolumeCubo</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">unitTest</a>
+</div>
+
+<h1>Coverage Summary for Class: TestVolumeCubo (unitTest)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">TestVolumeCubo</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (12/12)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package unitTest;
+&nbsp;// bibliotecas necessarias para usar nos testes
+&nbsp;import org.junit.Test;
+&nbsp;import org.junit.jupiter.api.Order;
+&nbsp;import org.junit.jupiter.params.ParameterizedTest;
+&nbsp;import org.junit.jupiter.params.provider.CsvFileSource;
+&nbsp;import org.junit.jupiter.params.provider.CsvSource;
+&nbsp;
+&nbsp;
+&nbsp;import static org.junit.Assert.assertEquals;
+&nbsp;
+&nbsp;
+<b class="fc">&nbsp;public class TestVolumeCubo {</b>
+&nbsp;
+&nbsp;    @Test
+&nbsp;    @Order(1)
+&nbsp;    public void testCalcularVolumeCubo() {
+&nbsp;        // Define a aresta do cubo
+&nbsp;        // Configura
+<b class="fc">&nbsp;        double comprimentoAresta = 5.0;</b>
+&nbsp;
+&nbsp;        // Co cálculo do volume do cubo pode ser feito multiplicando o comprimento da aresta
+&nbsp;        // por si mesma três vezes, ou seja, volume = comprimentoAresta * comprimentoAresta * comprimentoAresta.
+&nbsp;        // Mas para simplificar o código e evitar repetições, é comum usar o método pow para calcular a potência
+&nbsp;        // do número.
+&nbsp;        //Executa
+<b class="fc">&nbsp;        double volumeCalculado = Math.pow(comprimentoAresta, 3);</b>
+&nbsp;
+&nbsp;        // Define o resultado esperado
+<b class="fc">&nbsp;        double resultadoEsperado = 125.0;</b>
+&nbsp;
+&nbsp;        // Este código está usando o método &quot;assertEquals&quot; para verificar se o volume calculado de um
+&nbsp;        // cubo está correto.
+&nbsp;        //0.0001: a margem de erro permitida para a comparação dos valores esperado e calculado.
+&nbsp;        //Valida
+<b class="fc">&nbsp;        assertEquals(resultadoEsperado, volumeCalculado, 0.0001);</b>
+&nbsp;
+&nbsp;    }
+&nbsp;    @ParameterizedTest
+&nbsp;    @CsvSource(value = {
+&nbsp;            &quot;5.0,3,125&quot;,
+&nbsp;            &quot;6.0,3,216&quot;,
+&nbsp;            &quot;7.0,3,343&quot;
+&nbsp;    }, delimiter = &#39;,&#39;)
+&nbsp;    @Order(2)
+&nbsp;    void testCalculoVolumeCuboLista(double aresta, int expoente, double esperado) {
+&nbsp;
+<b class="fc">&nbsp;        double result = Math.pow(aresta, expoente);</b>
+&nbsp;
+&nbsp;        // aceita uma diferença de 0.0001 entre o valor esperado e o valor real
+<b class="fc">&nbsp;        assertEquals(esperado, result, 0.0001);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @ParameterizedTest
+&nbsp;    //indica o caminho do arquivo queserá lido e seus delimitadores
+&nbsp;    @CsvFileSource(resources = &quot;/csv/massaVolumeCubo.csv&quot;, numLinesToSkip = 1, delimiter = &#39;,&#39;)
+&nbsp;    @Order(3)
+&nbsp;
+&nbsp;    void testCalculoVolumeCuboCsv(String csvaresta, String csvexpoente, String resultadoesperado){
+&nbsp;
+<b class="fc">&nbsp;        double aresta = Double.parseDouble(csvaresta.substring(csvaresta.indexOf(&quot;:&quot;) + 1).trim());</b>
+<b class="fc">&nbsp;        double expoente = Double.parseDouble(csvexpoente.substring(csvexpoente.indexOf(&quot;:&quot;) + 1).trim());</b>
+<b class="fc">&nbsp;        double esperado = Double.parseDouble(resultadoesperado.substring(resultadoesperado.indexOf(&quot;:&quot;) + 1));</b>
+&nbsp;
+<b class="fc">&nbsp;        double result = Math.pow(aresta, expoente);</b>
+<b class="fc">&nbsp;        assertEquals(esperado, result, 0.0001);</b>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;    }
+&nbsp;}
+&nbsp;
+&nbsp;
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-04-10 20:53</div>
+</div>
+</body>
+</html>
