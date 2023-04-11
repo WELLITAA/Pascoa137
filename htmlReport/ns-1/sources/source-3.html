@@ -1,0 +1,164 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > TesteAreaDoQuadrado</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">unitTest</a>
+</div>
+
+<h1>Coverage Summary for Class: TesteAreaDoQuadrado (unitTest)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">TesteAreaDoQuadrado</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (12/12)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package unitTest;
+&nbsp;
+&nbsp;import org.junit.jupiter.api.Assertions;
+&nbsp;import org.junit.jupiter.api.DisplayName;
+&nbsp;import org.junit.jupiter.api.Test;
+&nbsp;import org.junit.jupiter.params.ParameterizedTest;
+&nbsp;import org.junit.jupiter.params.provider.CsvFileSource;
+&nbsp;import org.junit.jupiter.params.provider.CsvSource;
+&nbsp;
+&nbsp;import static br.com.iterasys.Calculadora.areaQuadrado;
+&nbsp;import static org.junit.jupiter.api.Assertions.assertEquals;
+&nbsp;
+<b class="fc">&nbsp;public class TesteAreaDoQuadrado {</b>
+&nbsp;    @Test
+&nbsp;    @DisplayName(&quot;Teste único de cálculo da Área do Quadrado&quot;)
+&nbsp;    public void testeCalculoAreaDoQuadrado() {
+&nbsp;        //Configura
+<b class="fc">&nbsp;        double aresta = 10;</b>
+&nbsp;
+&nbsp;        //Executa
+<b class="fc">&nbsp;        double resultadoEsperado = 100;</b>
+&nbsp;
+&nbsp;        //Valida
+<b class="fc">&nbsp;        assertEquals(resultadoEsperado, areaQuadrado(aresta));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @DisplayName(&quot;Teste com lista de cálculo da Área do Quadrado&quot;)
+&nbsp;    @ParameterizedTest(name = &quot;{displayName} {index} - Aresta: {0} - Resultado: {1}&quot;)
+&nbsp;    @CsvSource(value = {
+&nbsp;            &quot;5, 25&quot;,
+&nbsp;            &quot;3, 9&quot;,
+&nbsp;            &quot;-14, 196&quot;,
+&nbsp;            &quot;7.5, 56.25&quot;
+&nbsp;    }, delimiter = &#39;,&#39;)
+&nbsp;    public void testeCalculoAreaDoQuadradoComLista(String txtAresta, String txtResultadoEsperado) {
+&nbsp;        //Configura
+<b class="fc">&nbsp;        double aresta = Double.parseDouble(txtAresta);</b>
+<b class="fc">&nbsp;        double resultadoEsperado = Double.parseDouble(txtResultadoEsperado);</b>
+&nbsp;
+&nbsp;        //Executa
+<b class="fc">&nbsp;        double resultado = areaQuadrado(aresta);</b>
+&nbsp;
+&nbsp;        //Valida
+<b class="fc">&nbsp;        assertEquals(resultadoEsperado, resultado);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @ParameterizedTest(name = &quot;{displayName} {index} - Aresta: {0} - Resultado: {1}&quot;)
+&nbsp;    @CsvFileSource(resources = &quot;/csv/massaAreaQuadrado.csv&quot;, numLinesToSkip = 1, delimiter = &#39;;&#39;)
+&nbsp;    @DisplayName(&quot;Arquivo CSV de cálculo da Área do Quadrado&quot;)
+&nbsp;    public void testeCalculoAreaDoQuadradoComAqruivoCSV(String txtAresta, String txtResultadoEsperado) {
+&nbsp;        //Configura
+<b class="fc">&nbsp;        double aresta = Double.parseDouble(txtAresta);</b>
+<b class="fc">&nbsp;        double resultadoEsperado = Double.parseDouble(txtResultadoEsperado);</b>
+&nbsp;
+&nbsp;        //Executa
+<b class="fc">&nbsp;        double resultado = areaQuadrado(aresta);</b>
+&nbsp;
+&nbsp;        //Valida
+<b class="fc">&nbsp;        assertEquals(resultadoEsperado, resultado);</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-04-10 20:53</div>
+</div>
+</body>
+</html>
