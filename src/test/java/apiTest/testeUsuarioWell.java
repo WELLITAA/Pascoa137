@@ -7,7 +7,6 @@ import java.nio.file.Paths;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
-
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -15,7 +14,7 @@ import org.junit.jupiter.api.TestMethodOrder;
 
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class TesteUsuarioWell {
+public class testeUsuarioWell {
     static String ct = "application/json";
     static String uriUser ="https://petstore.swagger.io/v2/user/";
 
