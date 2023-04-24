@@ -9,10 +9,9 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
-
-
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class testeWebWell {
@@ -53,6 +52,9 @@ public class testeWebWell {
             builder.moveToElement(element, 0, 0).perform();
         }
         driver.findElement(By.cssSelector("#\\31 6237703116770 > .item-pill")).click();
+        String expectedUrl = "https://testando.eveclass.com/pt/blog";
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS); // aumenta o tempo de espera implícito
+        assertEquals(expectedUrl, driver.getCurrentUrl());
 
         }
 
